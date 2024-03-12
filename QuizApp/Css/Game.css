@@ -1,5 +1,15 @@
+@keyframes squish {
+	0%, 100% {
+		height: 30px;
+	}
+	50% {
+		height: 100px;
+		box-shadow: -10px -10px 0 5px black;
+		scale: 1.1;
+	}
+}
 .loader {
-	display: none;
+	display: flex;
 	align-items: center;
 	justify-content: space-around;
 	margin: 0 auto;
@@ -28,18 +38,8 @@
 	background-color: #49108b;
 	animation-delay: 400ms;
 }
-
-@keyframes squish {
-	0%, 100% {
-		height: 30px;
-	}
-	50% {
-		height: 100px;
-		box-shadow: -10px -10px 0 5px black;
-		scale: 1.1;
-	}
-}
 #container{
+    display: none;
     width: 700px;
 }
 .header{
