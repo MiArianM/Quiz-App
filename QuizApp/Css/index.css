@@ -1,0 +1,17 @@
+a{
+    margin-top: 2rem;
+    width: fit-content;
+    padding: 1rem 7rem;
+    border: 2px solid palevioletred;
+    border-radius: 6%;
+    transition: all 1s ease;
+    background-color: white;
+    text-decoration: none;
+    color: rgb(72, 0, 94);
+}
+a:hover{
+    color: rgb(253, 255, 120) ;
+    cursor: pointer;
+    background-color: rgb(143, 157, 196);
+    border-color: rgb(0, 0, 0);
+}
