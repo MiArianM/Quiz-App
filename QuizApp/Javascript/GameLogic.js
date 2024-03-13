@@ -5,6 +5,11 @@ const GameCont = document.getElementById("container");
 const Gameload = document.querySelector(".loader");
 const QuestionText = document.querySelector("#Question-Text");
 const QuestionAnswers = document.querySelectorAll(".Answere-button");
+const QuestionNumber = document.getElementById("QNum");
+const UserQuestionScore = document.getElementById("QSc");
+let AcceptedorNo = true;
+let userscore = 0;
+let questionnumber = 1;
 let formatting;
 let QuestionIndex = 0;
 /////////////////
@@ -31,6 +36,10 @@ function ShowQuestion() {
   });
 }
 const CheckUserAnswer = (Button, RightAnswer) => {
+  if (!AcceptedorNo) {
+    return;
+  }
+  AcceptedorNo = false;
   if (Button.innerHTML != RightAnswer) {
     Button.style.backgroundColor = "rgb(250, 43, 43)";
     QuestionAnswers.forEach((butt) => {
@@ -40,6 +49,16 @@ const CheckUserAnswer = (Button, RightAnswer) => {
       }
     });
   } else {
+    Rewarding();
     Button.style.backgroundColor = "rgb(28, 230, 129)";
   }
+  nexting();
 };
+function Rewarding() {
+  userscore = userscore + 10;
+  UserQuestionScore.innerText = userscore;
+}
+function nexting() {
+  questionnumber++;
+  QuestionNumber.innerText = questionnumber;
+}
