@@ -56,13 +56,15 @@ h4{
 .header div span{
     text-align: center;
     margin-left: 8px;
-    padding: 0px 5px;
+    padding: 0px 3px;
     display: inline-block;
-    width: 20px;
+    width: 25px;
     line-height: 18.85px;
     height: 18px;
-    background-color: rgb(210, 228, 179);
+    background: rgb(4,24,68);
+    background: linear-gradient(18deg, rgba(4,24,68,0.9752275910364145) 10%, rgba(36,218,133,0.9780287114845938) 63%);
     font-weight: 500;
+    border-radius: 30px;
 }
 #Question-Box{
     margin-top: 4rem;
