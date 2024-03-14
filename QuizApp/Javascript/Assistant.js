@@ -10,6 +10,7 @@ const FormattedData = (Data) => {
         Question: aData.question,
         answers: answers,
         CorrectAnswer: aData.correct_answer,
+        CorrectAnswerIndex: randomPushing,
       };
       return formattedlist;
     });
