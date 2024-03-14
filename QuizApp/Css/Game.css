@@ -115,3 +115,9 @@ h4{
 #finito-btn:hover,#nexto-btn:hover{
     box-shadow: 1px 1px 5px 1px #4b0d53;
 }
+.rightansw{
+    background-color: rgb(28, 230, 129)
+}
+.wrongansw{
+    background-Color : rgb(250, 43, 43)
+}
