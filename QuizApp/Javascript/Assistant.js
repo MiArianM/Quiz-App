@@ -1,6 +1,5 @@
 let randomPushing;
 const FormattedData = (Data) => {
-  console.log(Data);
   try {
     const formatted = Data.map((aData) => {
       randomPushing = Math.floor(Math.random() * 4);
