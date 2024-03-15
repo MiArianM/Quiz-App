@@ -1,0 +1,61 @@
+@font-face {
+    font-family: numberfont;
+    src: url("../EscapeArtist-0WvKz.otf");
+}
+@font-face {
+    font-family: allfont;
+    src: url("../WinterDrink-DOr51.ttf");
+}
+@keyframes gradient {
+    0% {
+      background-position: 20% 35%;
+    }
+    50% {
+      background-position: 155% 60%;
+    }
+    100% {
+      background-position: 20% 35%;
+    }
+  }
+*{
+    font-family: allfont;
+    font-size: 20px;
+}
+#userscore{
+    color: rgb(221, 221, 223);
+    font-size: 2rem;
+    font-weight: 600;
+    background: linear-gradient(-75deg,#3317afde, #6f52ee, #e73c3c, #231250, #6f52ee,#200e5fd7);
+    background-size: 400% 400%;
+    animation: gradient 4s ease infinite;
+    border-radius: 50%;
+    padding: 1rem ;
+    font-family: numberfont;
+}
+  input{
+    margin-top: 30px;
+    width: 300px;
+    background-color: #8b858533;
+    border-radius: 20px;
+    padding: 10px 40px;
+  }
+  div{
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  div button{
+    color: cornsilk;
+    width: 400px;
+    background-color: rgba(112, 127, 161, 0.884);
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 1px 1px 1px 1px #00000052;
+    cursor: pointer;
+    transition: all 0.5s ease-in;
+  }
+  div button:hover{
+    box-shadow: 1px 1px 5px 1px #5c595b;
+    background-color: #34247c;
+  }
