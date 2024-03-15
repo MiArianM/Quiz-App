@@ -17,3 +17,18 @@ body{
 h1{
     color: blueviolet;
 }
+a{
+    box-shadow: 1px 1px 5px 1px #000000;
+    width: 290px;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(4, 51, 0);
+    border-radius: 20px;
+    padding: 15px;
+    background-color: rgba(100, 109, 17, 0.801);
+    transition: 0.5s all ease;
+}
+a:hover{
+    background-color: #5e3f1cb6;
+    box-shadow: 7px 4px 5px 1px #371c44;
+}
