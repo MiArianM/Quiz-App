@@ -1,6 +1,6 @@
 import FormattedData from "../Javascript/Assistant.js";
-const url =
-  "https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple";
+const DifficultyLevel = localStorage.getItem("Difficulty") || "medium";
+const url = `https://opentdb.com/api.php?amount=10&difficulty=${DifficultyLevel}&type=multiple`;
 const GameCont = document.getElementById("container");
 const Gameload = document.querySelector(".loader");
 const QuestionText = document.querySelector("#Question-Text");
@@ -15,7 +15,6 @@ let userscore = 0;
 let questionnumber = 1;
 let formatting;
 let QuestionIndex = 0;
-console.log(FinishButton);
 /////////////////
 window.addEventListener("load", getData);
 FinishButton.addEventListener("click", () => {
@@ -32,12 +31,16 @@ const start = () => {
   Gameload.style.display = "none";
 };
 async function getData() {
-  const res = await fetch(url);
-  const { results } = await res.json();
-  formatting = FormattedData(results);
-  console.log(formatting);
-  nextButton.addEventListener("click", nexthandeling);
-  start();
+  try {
+    const res = await fetch(url);
+    const { results } = await res.json();
+    formatting = FormattedData(results);
+    nextButton.addEventListener("click", nexthandeling);
+    start();
+  } catch (error) {
+    localStorage.setItem("ErrorCatched", error);
+    window.location.assign("../htmls/index.html");
+  }
 }
 function ShowQuestion() {
   let { Question, answers, CorrectAnswerIndex } = formatting[QuestionIndex];
@@ -47,19 +50,6 @@ function ShowQuestion() {
     butts.innerHTML = answers[index];
   });
 }
-let CheckUserAnswer = (EventHappened, Buttsindex) => {
-  if (!AcceptedorNo) {
-    return;
-  }
-  AcceptedorNo = false;
-  if (Buttsindex === TheRealAnswereIndex) {
-    EventHappened.target.classList.add("rightansw");
-    Rewarding();
-  } else {
-    EventHappened.target.classList.add("wrongansw");
-    QuestionAnswers[TheRealAnswereIndex].classList.add("rightansw");
-  }
-};
 function nexthandeling() {
   if (questionnumber < 10) {
     AcceptedorNo = true;
@@ -79,6 +69,19 @@ function Rewarding() {
   userscore = userscore + 10;
   UserQuestionScore.innerText = userscore;
 }
+const CheckUserAnswer = (EventHappened, Buttsindex) => {
+  if (!AcceptedorNo) {
+    return;
+  }
+  AcceptedorNo = false;
+  if (Buttsindex === TheRealAnswereIndex) {
+    EventHappened.target.classList.add("rightansw");
+    Rewarding();
+  } else {
+    EventHappened.target.classList.add("wrongansw");
+    QuestionAnswers[TheRealAnswereIndex].classList.add("rightansw");
+  }
+};
 const finishing = () => {
   if (userscore) {
     localStorage.setItem("UserScore", JSON.stringify(userscore));
