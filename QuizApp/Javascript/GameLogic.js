@@ -15,8 +15,17 @@ let userscore = 0;
 let questionnumber = 1;
 let formatting;
 let QuestionIndex = 0;
+console.log(FinishButton);
 /////////////////
 window.addEventListener("load", getData);
+FinishButton.addEventListener("click", () => {
+  finishing();
+});
+QuestionAnswers.forEach((butts, index) => {
+  butts.addEventListener("click", (event) => {
+    CheckUserAnswer(event, index);
+  });
+});
 const start = () => {
   ShowQuestion();
   GameCont.style.display = "block";
@@ -26,6 +35,7 @@ async function getData() {
   const res = await fetch(url);
   const { results } = await res.json();
   formatting = FormattedData(results);
+  console.log(formatting);
   nextButton.addEventListener("click", nexthandeling);
   start();
 }
@@ -37,11 +47,6 @@ function ShowQuestion() {
     butts.innerHTML = answers[index];
   });
 }
-QuestionAnswers.forEach((butts, index) => {
-  butts.addEventListener("click", (event) => {
-    CheckUserAnswer(event, index);
-  });
-});
 let CheckUserAnswer = (EventHappened, Buttsindex) => {
   if (!AcceptedorNo) {
     return;
@@ -67,9 +72,16 @@ function nexthandeling() {
     ShowQuestion();
   } else {
     alert("Finito");
+    finishing();
   }
 }
 function Rewarding() {
   userscore = userscore + 10;
   UserQuestionScore.innerText = userscore;
 }
+const finishing = () => {
+  if (userscore) {
+    localStorage.setItem("UserScore", JSON.stringify(userscore));
+  }
+  window.location.assign("../htmls/Ended.html");
+};
