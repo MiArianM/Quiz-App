@@ -3,7 +3,7 @@ const username = document.getElementById("UsernamePlace");
 const saveuser = document.getElementById("saving");
 const Playo = document.getElementById("Playing");
 const Firsto = document.getElementById("FirstPage");
-const Userscore = JSON.parse(localStorage.getItem("UserScore"));
+let Userscore = JSON.parse(localStorage.getItem("UserScore"));
 let Scores = JSON.parse(localStorage.getItem("AllScores")) || [];
 usscored.innerText = Userscore;
 const saveTheUser = () => {
@@ -30,4 +30,3 @@ Firsto.addEventListener("click", () => {
   localStorage.removeItem("UserScore");
   window.location.assign("../htmls/index.html");
 });
-console.log(localStorage);
